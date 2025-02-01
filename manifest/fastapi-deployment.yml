@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: fastapi-app
-          image: ghcr.io/arogic/fastapi-app:0.1
+          image: ghcr.io/arogic/fastapi-app:1.0.0
           ports:
             - name: http
               containerPort: 8000
