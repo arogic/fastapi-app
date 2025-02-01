@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+  labels:
+    app: fastapi-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-app
+  template:
+    metadata:
+      labels:
+        app: fastapi-app
+    spec:
+      containers:
+        - name: fastapi-app
+          image: ghcr.io/arogic/fastapi-app:0.1
+          ports:
+            - name: http
+              containerPort: 8000
+          imagePullPolicy: Always
+        imagePullSecrets:
+          - name: argocd-pull-secret
+        nodeSelector:
+          kubernetes.io/os: linux
