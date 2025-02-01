@@ -2,15 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fastapi-ingress
+  namespace: demo
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-    - host: fastapi.127.0.0.1.sslip.io
+    - host: fastapi-home.duckdns.org
       http:
         paths:
-          - path: "/"
-            pathType: Prefix
+          - pathType: Prefix
+            path: "/"
             backend:
               service:
                 name: fastapi-service

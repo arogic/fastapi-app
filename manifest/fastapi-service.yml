@@ -4,6 +4,7 @@ metadata:
   labels:
     app: fastapi-service
   name: fastapi-service
+  namespace: demo
 spec:
   type: ClusterIP
   selector:
